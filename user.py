@@ -17,7 +17,7 @@ class User:
             cursor.execute('INSERT INTO users (email, first_name, last_name) VALUES (%s, %s, %s)',
                            (self.email, self.first_name, self.last_name))
 
-    @classmethod  # not putting back 'connection'
+    @classmethod  
     def load_from_db_by_email(cls, email):
         with ConnectionFromPool() as cursor:
             cursor.execute('SELECT * FROM users WHERE email = %s', (email,))
